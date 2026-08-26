@@ -2,27 +2,27 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>MinnoJS SC-IAT Test</title>
-  <!-- Load jQuery and standard Minno PIP engine directly -->
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <title>SC-IAT</title>
+  <!-- Load MinnoJS directly from primary CDN -->
   <script src="https://cdn.jsdelivr.net/gh/minnojs/minno-quest@0.3/dist/pip.js"></script>
 </head>
-<body style="margin:0; padding:0; background-color: #ffffff;">
-  <div id="minno-runner" style="min-height: 100vh; width: 100vw;"></div>
+<body style="margin:0; padding:0; background:#ffffff;">
+  <div id="minno-runner"></div>
 
   <script>
-    document.addEventListener("DOMContentLoaded", function() {
+    // Run task directly using Minno's core PIP engine
+    window.onload = function() {
       if (window.pip) {
-        window.pip({
+        pip({
           url: 'https://cdn.jsdelivr.net/gh/baranan/minno-tasks@0.4/SCIAT/sciat6.js',
           onEnd: function(data) {
-            window.parent.postMessage({ type: 'MINNO_DEMO_COMPLETE' }, '*');
+            window.parent.postMessage({ type: 'MINNO_DEMO_COMPLETE', data: data }, '*');
           }
         });
       } else {
-        document.body.innerHTML = '<h2 style="text-align:center; padding-top:50px; font-family:sans-serif;">Engine script failed to load.</h2>';
+        document.body.innerHTML = '<h3 style="text-align:center; padding-top:40px; font-family:sans-serif;">Loading error. Please refresh.</h3>';
       }
-    });
+    };
   </script>
 </body>
 </html>
