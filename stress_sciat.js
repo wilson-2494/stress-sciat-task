@@ -1,4 +1,4 @@
-define(['pipAPI', 'https://cdn.jsdelivr.net/gh/baranan/minno-tasks@0.4/SCIAT/sciat6.js'], function(API, sciatExtension) {
+define(['pipAPI', 'https://cdn.jsdelivr.net/gh/baranan/minno-tasks@0.4/SCIAT/qualtrics/qsciat6.js'], function(API, sciatExtension) {
     
     return sciatExtension({
         // ---------------------------------------------------------------------
